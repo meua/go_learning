@@ -36,6 +36,10 @@ func TestCancel(t *testing.T) {
 			fmt.Println(i, "Cancelled")
 		}(i, cancelChan)
 	}
+	// 代码耦合了
+	//for i:=0; i<5; i++ {
+	//	cancel_1(cancelChan)
+	//}
 	cancel_2(cancelChan)
 	time.Sleep(time.Second * 1)
 }

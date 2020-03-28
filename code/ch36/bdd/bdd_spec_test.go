@@ -10,7 +10,7 @@ func TestSpec(t *testing.T) {
 
 	// Only pass t into top-level Convey calls
 	Convey("Given 2 even numbers", t, func() {
-		a := 3
+		a := 2
 		b := 4
 
 		Convey("When add the two numbers", func() {

@@ -12,7 +12,7 @@ func dataProducer(ch chan int, wg *sync.WaitGroup) {
 			ch <- i
 		}
 		close(ch)
-
+		//ch <- 11
 		wg.Done()
 	}()
 
@@ -39,8 +39,10 @@ func TestCloseChannel(t *testing.T) {
 	dataProducer(ch, &wg)
 	wg.Add(1)
 	dataReceiver(ch, &wg)
-	// wg.Add(1)
-	// dataReceiver(ch, &wg)
+	//wg.Add(1)
+	//dataReceiver(ch, &wg)
+	//wg.Add(1)
+	//dataReceiver(ch, &wg)
 	wg.Wait()
 
 }

@@ -24,3 +24,13 @@ func TestBitClear(t *testing.T) {
 	a = a &^ Executable
 	t.Log(a&Readable == Readable, a&Writable == Writable, a&Executable == Executable)
 }
+
+/*go语言中按位取反写法是^, 所以 a&^b 其实是 a&(^b) 利用运算符优先级省略掉括号的写法而已.
+下面的测试方法可以自行验证一下. 其它语言中关键字不同写法可能是 a&(~b), 但算法是一样的.*/
+func TestBitClear1(t *testing.T) {
+	flag := Readable | Executable
+	t.Log(flag&^Readable == Executable)
+	t.Log(flag&^Executable == Readable)
+	t.Log(flag&(^Readable) == Executable)
+	t.Log(flag&(^Executable) == Readable)
+}

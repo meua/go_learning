@@ -8,6 +8,7 @@ import (
 )
 
 func returnMultiValues() (int, int) {
+	rand.Seed(time.Now().UTC().UnixNano())
 	return rand.Intn(10), rand.Intn(20)
 }
 
@@ -28,8 +29,10 @@ func slowFun(op int) int {
 func TestFn(t *testing.T) {
 	a, _ := returnMultiValues()
 	t.Log(a)
-	tsSF := timeSpent(slowFun)
-	t.Log(tsSF(10))
+	//tsSF := timeSpent(slowFun)
+	//t.Log(tsSF(10))
+
+	t.Log(timeSpent(slowFun)(10))
 }
 
 func Sum(ops ...int) int {
@@ -52,5 +55,24 @@ func Clear() {
 func TestDefer(t *testing.T) {
 	defer Clear()
 	fmt.Println("Start")
+	//t.Log("start")
 	panic("err")
+	t.Log("not print")
+}
+
+func TestDefer1(t *testing.T) {
+	for i := 0; i < 5; i++ {
+		defer fmt.Printf("%d\n", i)
+	}
+}
+
+func Defer2() (ret int) {
+	defer func() {
+		ret++
+	}()
+	return 1
+}
+
+func TestDefer2(t *testing.T) {
+	t.Logf("%d\n", Defer2())
 }

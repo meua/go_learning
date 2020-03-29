@@ -1,6 +1,9 @@
 package constant_test
 
-import "testing"
+import (
+	"testing"
+	"time"
+)
 
 const (
 	Monday = 1 + iota
@@ -15,7 +18,8 @@ const (
 )
 
 func TestConstantTry(t *testing.T) {
-	t.Log(Monday, Tuesday)
+	t.Log(Monday, Tuesday, Wednesday, time.Wednesday)
+
 }
 
 func TestConstantTry1(t *testing.T) {

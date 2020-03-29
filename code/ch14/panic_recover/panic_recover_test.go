@@ -10,6 +10,7 @@ func TestPanicVxExit(t *testing.T) {
 
 	defer func() {
 		if err := recover(); err != nil {
+			// 这种处理 不好
 			fmt.Println("recovered from ", err)
 		}
 	}()

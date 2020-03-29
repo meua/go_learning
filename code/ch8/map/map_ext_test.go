@@ -3,7 +3,7 @@ package map_ext
 import "testing"
 
 func TestMapWithFunValue(t *testing.T) {
-	m := map[int]func(op int) int{}
+	m := map[int]func(int) int{}
 	m[1] = func(op int) int { return op }
 	m[2] = func(op int) int { return op * op }
 	m[3] = func(op int) int { return op * op * op }

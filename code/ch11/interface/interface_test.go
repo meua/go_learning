@@ -14,7 +14,8 @@ func (g *GoProgrammer) WriteHelloWorld() string {
 }
 
 func TestClient(t *testing.T) {
-	var p Programmer
-	p = new(GoProgrammer)
+	//var p Programmer
+	//p = new(GoProgrammer)
+	var p Programmer = &GoProgrammer{}
 	t.Log(p.WriteHelloWorld())
 }

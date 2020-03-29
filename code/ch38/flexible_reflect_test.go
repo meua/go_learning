@@ -67,6 +67,9 @@ func fillBySettings(st interface{}, settings map[string]interface{}) error {
 		if field.Type == reflect.TypeOf(v) {
 			vstr := reflect.ValueOf(st)
 			vstr = vstr.Elem()
+			//fmt.Println("st",st)
+			//fmt.Println("--", (reflect.ValueOf(st)).Elem())
+			//fmt.Println("**", (reflect.ValueOf(st)).Elem().Type())
 			vstr.FieldByName(k).Set(reflect.ValueOf(v))
 		}
 

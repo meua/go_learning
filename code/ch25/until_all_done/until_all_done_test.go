@@ -43,6 +43,7 @@ func AllResponse() string {
 func TestFirstResponse(t *testing.T) {
 	t.Log("Before:", runtime.NumGoroutine())
 	t.Log(AllResponse())
+	t.Log(AllResponse())
 	time.Sleep(time.Second * 1)
 	t.Log("After:", runtime.NumGoroutine())
 
